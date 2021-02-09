@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">ბოლო დავალება</string>
+    <string name="regPageTitle">რეგისტრაცია</string>
+    <string name="loginPageTitle">სისტემაში შესვლა</string>
+    <string name="resetPageTitle">პაროლის აღდგენა</string>
+    <string name="updatePasswordPageTitle">პაროლის შეცვლა</string>
+    <string name="newPasswordEditText">ახალი პაროლი</string>
+    <string name="changePassword">პაროლის შეცვლა</string>
+    <string name="passwordHint">პაროლი</string>
+    <string name="emailHint">ელ.ფოსტა</string>
+    <string name="regButtonText">დარეგისტრირება</string>
+    <string name="or">ან</string>
+    <string name="loginButtonText">ავტორიზაცია</string>
+    <string name="goBack">უკან დაბრუნება</string>
+    <string name="mLogOut">გასვლა</string>
+    <string name="forgotPassword">დაგავიწყდათ პაროლი?</string>
+    <string name="confirmPasswordReset">მეილის დადასუტურება</string>
+    <string name="NewNote">დამატება</string>
+</resources>

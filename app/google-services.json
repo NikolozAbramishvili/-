@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "553789415241",
+    "project_id": "authentication-38f55",
+    "storage_bucket": "authentication-38f55.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:553789415241:android:a54676106de0e218e88498",
+        "android_client_info": {
+          "package_name": "com.example.bolo_davaleba"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "553789415241-knn27aeaeq6vhje788h7kqsqnqjq0c6n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2ZYK7WbZZCB2HaJ0UMZs3R6MUMOYOLEM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "553789415241-knn27aeaeq6vhje788h7kqsqnqjq0c6n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
