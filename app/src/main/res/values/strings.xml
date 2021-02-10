@@ -16,4 +16,7 @@
     <string name="forgotPassword">დაგავიწყდათ პაროლი?</string>
     <string name="confirmPasswordReset">მეილის დადასუტურება</string>
     <string name="NewNote">დამატება</string>
+    <string name="currentPwdEditText">ძველი პაროლი</string>
+    <string name="newPwddEditText">ახალი პაროლი</string>
+    <string name="confirmPwddEditText">გაიმეორეთ პაროლი</string>
 </resources>

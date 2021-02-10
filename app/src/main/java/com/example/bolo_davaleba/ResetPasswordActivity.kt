@@ -31,6 +31,7 @@ class ResetPasswordActivity : AppCompatActivity() {
             } else {
                 auth.sendPasswordResetEmail(email).addOnCompleteListener { task ->
                     if (task.isSuccessful) {
+                        Toast.makeText(this, "მეილი გაიგზავნა", Toast.LENGTH_LONG).show()
                         startActivity(Intent(this, LoginActivity::class.java))
                         finish()
                     } else {
