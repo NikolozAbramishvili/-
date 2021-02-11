@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ბოლო დავალება</string>
+    <string name="app_name">სანიშნე</string>
     <string name="regPageTitle">რეგისტრაცია</string>
     <string name="loginPageTitle">სისტემაში შესვლა</string>
     <string name="resetPageTitle">პაროლის აღდგენა</string>
@@ -19,4 +19,7 @@
     <string name="currentPwdEditText">ძველი პაროლი</string>
     <string name="newPwddEditText">ახალი პაროლი</string>
     <string name="confirmPwddEditText">გაიმეორეთ პაროლი</string>
+    <string name="appLogoAlt">Application Description</string>
+    <string name="splashAppTitle">Name of the Application</string>
+    <string name="splashAppDescription">Created by Student 1 Student 2</string>
 </resources>
