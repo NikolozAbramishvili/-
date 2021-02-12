@@ -12,7 +12,7 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
-    private lateinit var goBackButton: Button
+    private lateinit var goRegButton: Button
     private lateinit var loginButton: Button
     private lateinit var emailEditText: EditText
     private lateinit var pwdEditText: EditText
@@ -23,15 +23,16 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        goBackButton = findViewById(R.id.goBackButton)
+        goRegButton = findViewById(R.id.goRegButton)
         emailEditText = findViewById(R.id.loginEmailEditText)
         pwdEditText = findViewById(R.id.loginPwdEditText)
         loginButton = findViewById(R.id.signInButton)
         auth = FirebaseAuth.getInstance()
         forgotPasswordTextView = findViewById(R.id.forgotPasswordTextView)
 
-        goBackButton.setOnClickListener {
-            finish()
+        goRegButton.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
         }
 
         forgotPasswordTextView.setOnClickListener {

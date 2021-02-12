@@ -82,12 +82,12 @@
 
 
         <Button
-            android:id="@+id/goBackButton"
+            android:id="@+id/goRegButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="18dp"
             android:paddingBottom="18dp"
-            android:text="@string/goBack" />
+            android:text="@string/regButtonText" />
 
 
     </LinearLayout>

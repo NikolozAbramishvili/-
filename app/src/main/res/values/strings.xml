@@ -19,7 +19,7 @@
     <string name="currentPwdEditText">ძველი პაროლი</string>
     <string name="newPwddEditText">ახალი პაროლი</string>
     <string name="confirmPwddEditText">გაიმეორეთ პაროლი</string>
-    <string name="appLogoAlt">Application Description</string>
-    <string name="splashAppTitle">Name of the Application</string>
-    <string name="splashAppDescription">Created by Student 1 Student 2</string>
+    <string name="appLogoAlt">სანიშნე</string>
+    <string name="splashAppTitle">სანიშნე</string>
+    <string name="splashAppDescription">შემქმნელები:ნიკოლოზ აბრამიშვილი   ცოტნე გლურჯიძე</string>
 </resources>
