@@ -20,9 +20,9 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-data class Notebook(
+data class Notes(
         val title: String = "",
-        val description: String = ""
+        val content: String = ""
 )
 
 class NoteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
@@ -44,21 +44,21 @@ class MainActivity : AppCompatActivity() {
         val notesCollectionQuery = fireStore.collection("Notebook")
 
 
-        val options = FirestoreRecyclerOptions.Builder<Notebook>().setQuery(notesCollectionQuery, Notebook::class.java)
+        val options = FirestoreRecyclerOptions.Builder<Notes>().setQuery(notesCollectionQuery, Notes::class.java)
                 .setLifecycleOwner(this).build()
 
-        val adapter = object: FirestoreRecyclerAdapter<Notebook, NoteViewHolder>(options) {
+        val adapter = object: FirestoreRecyclerAdapter<Notes, NoteViewHolder>(options) {
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
                 val view = LayoutInflater.from(this@MainActivity).inflate(android.R.layout.simple_list_item_2, parent, false)
                 return NoteViewHolder(view)
             }
 
-            override fun onBindViewHolder(holder: NoteViewHolder, position: Int, model: Notebook) {
+            override fun onBindViewHolder(holder: NoteViewHolder, position: Int, model: Notes) {
                 val tvTitle: TextView = holder.itemView.findViewById(android.R.id.text1)
                 val tvDescription: TextView = holder.itemView.findViewById(android.R.id.text2)
 
                 tvTitle.text = model.title
-                tvDescription.text = model.description
+                tvDescription.text = model.content
 
 
                 holder.itemView.setOnClickListener {
@@ -94,11 +94,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showActionDialog() {
-        val editText = EditText(this)
+        val dialogView = layoutInflater.inflate(R.layout.add_dialog, null)
+
+        val displayNameEditText = dialogView.findViewById<EditText>(R.id.displayNameEditText)
+        val stateEditText = dialogView.findViewById<EditText>(R.id.stateEditText)
 
         val dialog = AlertDialog.Builder(this)
                 .setTitle("Create a Note")
-                .setView(editText)
+                .setView(dialogView)
                 .setNegativeButton("Cancel", null)
                 .setPositiveButton("OK", null)
                 .show()
@@ -107,19 +110,31 @@ class MainActivity : AppCompatActivity() {
         dialog.getButton(DialogInterface.BUTTON_POSITIVE).setOnClickListener {
             Log.i("MAIN_ACTIVITY", "Clicked on positive button!")
 
-            val titleText = editText.text.toString()
-            if (titleText.isBlank()) {
-                Toast.makeText(this, "Cannot submit empty text", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
+
             val currentUser = auth.currentUser
             if (currentUser == null) {
                 Toast.makeText(this, "No signed in user", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            Toast.makeText(this, titleText.toString(), Toast.LENGTH_SHORT).show()
-//            fireStore.collection("Notebook").add()
+            val displayName = displayNameEditText.text.toString()
+            val stateText = stateEditText.text.toString()
+            if (displayName.isBlank() || stateText.isBlank()) {
+                Toast.makeText(this, "Cannot submit empty text", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+
+//            Toast.makeText(this, titleText.toString(), Toast.LENGTH_SHORT).show()
+
+            val newNote = Notes(stateText, displayName)
+
+            fireStore.collection("notes").add(newNote).addOnSuccessListener { task ->
+                Log.i("MAIN_ACTIVITY_OK", "note added")
+            }.addOnFailureListener{
+                e ->
+                Log.e("MAIN_ACTIVITY_EX", e.message.toString())
+            }
             dialog.dismiss()
         }
     }
